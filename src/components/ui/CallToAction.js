@@ -88,7 +88,7 @@ export default function CallToAction(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item direction='row' justify={matchesSM ? 'center' : undefined}>
+      <Grid item direction='row'>
         <Button 
           component={Link}
           to='/estimate' 
