@@ -1,7 +1,8 @@
 import React,  { useState } from 'react';
-import Header from '../components/ui/Header.js';
-import Footer from '../components/ui/Footer.js';
-import LandingPage from '../components/LandingPage';
+import Header from './ui/Header.js';
+import Footer from './ui/Footer.js';
+import LandingPage from './LandingPage';
+import Services from './Services';
 import { ThemeProvider } from '@material-ui/styles';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import theme from './ui/Theme';
@@ -15,8 +16,8 @@ function App() {
         <Header value={value} setValue={setValue} 
           selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
         <Switch>
-          <Route exact path="/" render={(props) =><LandingPage {...props} setValue={setValue} setSelectedIndex={setSelectedIndex} /> } />
-          <Route exact path="/services" component={() => <div>Services</div>} />
+          <Route exact path="/" render={props => <LandingPage {...props} setValue={setValue} setSelectedIndex={setSelectedIndex} /> } />
+          <Route exact path="/services" render={props => <Services {...props}/>} />
           <Route exact path="/customsoftware" component={() => <div>Custom Software</div>} />
           <Route exact path="/mobileapps" component={() => <div>iOS/Android Apps</div>} />
           <Route exact path="/websites" component={() => <div>Websites</div>} />
