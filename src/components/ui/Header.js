@@ -84,6 +84,7 @@ const useStyles = makeStyles(theme => ({
   menuItem: {
     ...theme.typography.tab,
     opacity: 0.7,
+    color: 'white',
     '&:hover': {
       opacity: 1
     }
@@ -178,7 +179,7 @@ export default function Header(props) {
           }
           break;
         case '/estimate':
-          props.setValue(-1);
+          props.setValue(false);
           break;
         default:
           break;
@@ -207,7 +208,7 @@ export default function Header(props) {
         component={Link} 
         className={classes.button} 
         to="/estimate"
-        onClick={() => props.setValue(-1)}
+        onClick={() => props.setValue(false)}
       >
         Free Estimate
       </Button>

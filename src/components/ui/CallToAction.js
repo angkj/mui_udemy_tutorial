@@ -88,13 +88,13 @@ export default function CallToAction(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item direction='row'>
+      <Grid item>
         <Button 
           component={Link}
           to='/estimate' 
           variant='contained' 
           className={classes.estimateButton}
-          onClick={() => props.setValue(-1)}>Free Estimate</Button>
+          onClick={() => props.setValue(false)}>Free Estimate</Button>
       </Grid>
     </Grid>
   );

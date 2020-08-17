@@ -49,12 +49,12 @@ export default function Services(props) {
 
   return (
     <Grid container direction='column'>
-      <Grid item>
+      <Grid item
+        style={{marginLeft: matchesSM ? 0 : '5em', marginTop: matchesSM ? '1em' : '2em'}}>
         <Typography 
           align={matchesSM ? 'center' : undefined} 
           variant='h2' 
-          gutterBottom 
-          style={{marginLeft: matchesSM ? 0 : '5em'}}>Services</Typography>
+          gutterBottom >Services</Typography>
       </Grid>
       <Grid item> {/* iOS/Android BLOCK */}
         <Grid container direction="row" className={classes.serviceContainer} style={{marginTop: matchesSM ? '1em' : '5em'}} justify={matchesSM ? 'center' : 'flex-end'}>
@@ -68,7 +68,7 @@ export default function Services(props) {
               variant='outlined' 
               className={classes.learnButton}>
               <span style={{marginRight: 10}}
-              onClick={() => {props.setValue(1); props.setSelectedIndex(2)}}>Learn More</span>
+                onClick={() => {props.setValue(1); props.setSelectedIndex(2)}}>Learn More</span>
               <ButtonArrow width={10} height={10} fill={theme.palette.common.blue} />
             </Button>
           </Grid>
