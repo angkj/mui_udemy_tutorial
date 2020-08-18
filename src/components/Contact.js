@@ -130,7 +130,9 @@ export default function Contact(props) {
       setEmail('');
       setPhone('');
       setMessage('');
-    }).catch(error => setLoading(false))
+    }).catch(error => {
+      setLoading(false)
+    })
   }
 
   const buttonContents = (
@@ -222,7 +224,7 @@ export default function Contact(props) {
             <Grid item>
               <Button variant='contained' className={classes.sendButton} 
                 disabled={name.legnth === 0 || message.length === 0 || email.length === 0 || phone.length === 0 || phoneHelper.length !== 0 || emailHelper.length !== 0}
-                onClick={() => setOpen(false)}>
+                onClick={onConfirm}>
                 {loading ? <CircularProgress size={30} /> : buttonContents}
               </Button>
             </Grid>
