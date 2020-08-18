@@ -21,6 +21,7 @@ let mailOptions = {
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.sendMail = functions.https.onRequest((request, response) => {
+  response.set('Access-Control-Allow-Origin', '*');
   cors(request, response, () => {
     const {name, email, phone, message} = request.query;
     mailOptions = {
@@ -604,6 +605,7 @@ exports.sendMail = functions.https.onRequest((request, response) => {
       </html>
       
       `
-    }
+    };
+    transporter.sendMail(mailOptions);
   })
 });
