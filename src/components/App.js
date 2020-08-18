@@ -8,6 +8,7 @@ import Websites from './Websites';
 import Services from './Services';
 import Revolution from './Revolution';
 import About from './About';
+import Contact from './Contact';
 import { ThemeProvider } from '@material-ui/styles';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import theme from './ui/Theme';
@@ -28,7 +29,7 @@ function App() {
           <Route exact path="/websites" render={props => <Websites {...props} setValue={setValue}  setSelectedIndex={setSelectedIndex}/>} />
           <Route exact path="/revolution" render={props => <Revolution {...props} setValue={setValue}  setSelectedIndex={setSelectedIndex}/>} />
           <Route exact path="/about" render={props => <About {...props} setValue={setValue}  setSelectedIndex={setSelectedIndex}/>} />
-          <Route exact path="/contact" component={() => <div>Contact</div>} />
+          <Route exact path="/contact" render={props => <Contact {...props} setValue={setValue}  setSelectedIndex={setSelectedIndex}/>} />
           <Route exact path="/estimate" component={() => <div>Estimate</div>} />
         </Switch>
         <Footer setValue={setValue} setSelectedIndex={setSelectedIndex} />

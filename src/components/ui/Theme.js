@@ -72,10 +72,32 @@ export default createMuiTheme({
       fontSize: '1rem'
     },
     estimate: {
-      fontFamily: "Pacifico",
+      fontFamily: "Pacifico", 
       fontSize: "1rem",
       textTransform: "none",
       color: "white"
+    }
+  },
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: arcBlue,
+        fontSize: '1rem'
+      }
+    },
+    MuiInput: {
+      root: {
+        color: arcGrey,
+        fontWeight: 300
+      },
+      underline: {
+        '&:before': {
+          borderBottom: `2px solid ${arcBlue}` // back-ticks allow for multiple styles
+        },
+        '&:hover:not($disabled):not($focused):not($error):before': {
+          borderBottom: `2px solid ${arcBlue}`
+        },
+      }
     }
   }
 });
