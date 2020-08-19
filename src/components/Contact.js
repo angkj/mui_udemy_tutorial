@@ -130,7 +130,8 @@ export default function Contact(props) {
       email: email,
       phone: phone,
       message: message
-    }}).then(response => {
+    }}
+    ).then(response => {
       console.log(response);
       setLoading(false);
       setOpen(false);

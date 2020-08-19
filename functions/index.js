@@ -21,21 +21,18 @@ let mailOptions = {
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 exports.sendMail = functions.https.onRequest((request, response) => {
-  response.set('Access-Control-Allow-Origin', '*');
+//   response.set('Access-Control-Allow-Origin', '*');
   cors(request, response, () => {
-    const {name, email, phone, message} = request.query;
+    const {name, email, phone, message} = request.query; 
     mailOptions = {
-      ...mailOptions, 
-      to: '', 
-      subject: 'Message received', 
+      ...mailOptions,
+      to: '',
+      subject: 'Message received',
       html: `
         <p style="font-size: 16px;">From: ${name}</p>
         <p style="font-size: 16px;">Email: ${email}</p>
         <p style="font-size: 16px;">Phone Number: ${phone}</p>
         <p style="font-size: 16px;">Message: ${message}</p>
-        <p style="font-size: 16px;">Total: ${total}</p>
-        <p style="font-size: 16px;">Service: ${service}</p>
-        <p style="font-size: 16px;">Category: ${category}</p>
       `
     }
     transporter.sendMail(mailOptions, error => {
@@ -44,18 +41,13 @@ exports.sendMail = functions.https.onRequest((request, response) => {
       } else {
         response.send('Message sent successfully!');
       }
-    })
+    });
     mailOptions = {
-      ...mailOptions, 
-      to: email, 
+      ...mailOptions,
+      to: email,
       subject: 'We have received your message',
-      html: `
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-      <html
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:v="urn:schemas-microsoft-com:vml"
-        xmlns:o="urn:schemas-microsoft-com:office:office"
-      >
+      html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
         <head>
           <!--[if gte mso 9]>
             <xml>
@@ -68,14 +60,8 @@ exports.sendMail = functions.https.onRequest((request, response) => {
           <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link
-            href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-            rel="stylesheet"
-          />
+          <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
           <title></title>
           <style type="text/css">
             p {
@@ -603,9 +589,8 @@ exports.sendMail = functions.https.onRequest((request, response) => {
           </table>
         </body>
       </html>
-      
       `
     };
     transporter.sendMail(mailOptions);
-  })
+  });
 });
