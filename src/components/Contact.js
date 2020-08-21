@@ -195,7 +195,7 @@ export default function Contact(props) {
             </Grid>
             <Grid item container justify='center' style={{marginTop: '2em'}}>
               <Button variant='contained' className={classes.sendButton} 
-                // disabled={name.legnth === 0 || message.length === 0 || email.length === 0 || phone.length === 0 || phoneHelper.length !== 0 || emailHelper.length !== 0}
+                disabled={name.legnth === 0 || message.length === 0 || email.length === 0 || phone.length === 0 || phoneHelper.length !== 0 || emailHelper.length !== 0}
                 onClick={() => setOpen(true)}>
                  {buttonContents}
               </Button>
